@@ -1,0 +1,36 @@
+
+<div class="container card w-50 mt-5">
+    
+    <form>
+        <div class="row card-header text-center">
+            <H2>Login</H2>
+        </div>
+        <div class="alert alert-warning" *ngIf='success'>
+            {{errorMessage}}
+        </div>
+        <div class="card-body">
+            <div class="row m-5">
+                <div class="col-md-3 pt-1 col-12">
+                    <label for="username">UserName: </label>
+                </div>
+                <div class="col-md-9 col-sm-12 col-12">
+                    <input class="form-control text-center" type="text" id="username" [(ngModel)]="username"
+                        name="first" placeholder="enter your UserName here!">
+                </div>
+            </div>
+            <div class="row m-5">
+                <div class="col-md-3 col-12 pt-1"> 
+                    <label for="pass">Password: </label>
+                </div>
+                <div class="col-md-9 col-sm-12 col-12">
+                    <input class="form-control text-center" type="password" id="pass" [(ngModel)]="password" name="second"
+                        placeholder="enter your password here!">
+                </div>
+            </div>
+        
+        <div class="row justify-content-center">
+            <button class="col col-sm-3 btn btn-primary m-2" (click)=login() type="onSubmit()">Click me!</button>
+        </div>
+        </div>
+    </form>
+</div>

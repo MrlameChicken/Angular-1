@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+    <div><a class="navbar-brand mx-3" routerLink="/welcome">My Todo List</a></div>
+  
+    <!-- Links -->
+    <ul class="navbar-nav">
+      <li>
+        <a class="nav-link" *ngIf=auth.isAuth() routerLink="/welcome">Home</a>
+      </li>
+      <li>
+        <a class="nav-link" *ngIf=auth.isAuth() routerLink="/todo">My Lists</a>
+      </li>
+      </ul>
+
+      <ul class="navbar-nav navbar-collapse justify-content-end mx-3">
+        <li>
+        <a class="nav-link" *ngIf=auth.isAuth() routerLink="/logout">Logout</a>
+      </li>
+      <li>
+        <a class="nav-link" *ngIf=!auth.isAuth() routerLink="/">Login</a>
+      </li>
+    </ul>
+</nav>
+<!-- 
+<div class="jumbotron">
+  <h1 class="text-center">My TODO List</h1>
+</div> -->
+  

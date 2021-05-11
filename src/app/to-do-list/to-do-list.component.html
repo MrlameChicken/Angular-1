@@ -1,0 +1,14 @@
+<div class="container">
+<table class="table">
+<thead>
+<td style="font-weight: bold;">ID</td>
+<td style="font-weight: bold;">Description</td>
+</thead>
+<tbody>
+<tr *ngFor = "let x of todo">
+    <td>{{x.id}}</td>
+    <td>{{x.desc}}</td>
+</tr>
+</tbody>
+</table>
+</div>
