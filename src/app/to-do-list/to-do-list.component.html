@@ -1,10 +1,14 @@
 <div class="container">
+    <div class="alert alert-warning" *ngIf='message'>
+        {{message}}
+    </div>
 <table class="table table-bordered">
 <thead>
 <td style="font-weight: bold;">ID</td>
 <td style="font-weight: bold;">Description</td>
 <td style="font-weight: bold;">Date</td>
 <td style="font-weight: bold;">Done?</td>
+<td style="font-weight: bold;">Action</td>
 </thead>
 <tbody>
 <tr *ngFor = "let x of todoList">
@@ -12,6 +16,7 @@
     <td>{{x.description}}</td>
     <td>{{x.targetDate}}</td>
     <td>{{x.done}}</td>
+    <td><button class="btn btn-warning" (click)=deleteToDos(x.id)>Delete</button></td>
 </tr>
 </tbody>
 </table>

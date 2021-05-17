@@ -25,6 +25,7 @@ export class ToDoListComponent implements OnInit {
    
    }
    todoList :todo[]
+   message = null
   //[
   //   {id:1,desc:"first"},
   //   {id:2,desc:"second"},
@@ -32,12 +33,26 @@ export class ToDoListComponent implements OnInit {
   // ]
 
   ngOnInit(): void {
-    this.todoService.getAllTodos('Tanmaya').subscribe(
-      response => {
-        console.log(response)
-        this.todoList = response
+    this.refreshToDos()
+    
+  }
+  refreshToDos(){
+      this.todoService.getAllTodos('Tanmaya').subscribe(
+        response => {
+          console.log(response)
+          this.todoList = response
+        }
+      )  
+  }
+  deleteToDos(id){
+
+    this.todoService.deleteTodoById('Tanmaya',id).subscribe(
+      reponse => {
+        this.refreshToDos()
+        this.message = `Todo with id - ${id} is successful`
       }
     )
+
   } 
 
 }
