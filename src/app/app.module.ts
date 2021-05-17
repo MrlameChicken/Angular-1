@@ -13,6 +13,7 @@ import { TopMenuComponent } from './top-menu/top-menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RouteGuardService } from './serivce/route-guard.service';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {path:'',component: LoginComponent},
@@ -39,6 +40,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],

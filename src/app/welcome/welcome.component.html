@@ -1,3 +1,20 @@
 <H1>Welcome</H1>
+<div class="alert alert-warning" *ngIf="errorToShow">
+    {{errorToShow}}
+</div>
 
 Welcome to the My TODO List App. <a routerLink="/todo">Click here to continue</a>
+
+    
+<div>
+<input class="col-md-3 text-center" type="text" name="first" placeholder="enter your UserName here!" [(ngModel)]="username">
+
+    <button class="col-md-4 btn btn-success m-3" (click) = customHello()>Custom Hi!</button>
+    <button class="col-md-4 btn btn-success m-3" (click)=hello()>Hi!</button>
+</div>
+  
+
+<div>
+    <h3 *ngIf="responseToPrint">Your Message</h3>
+    <p>{{responseToPrint}}</p>
+</div>
