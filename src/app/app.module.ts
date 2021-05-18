@@ -14,13 +14,15 @@ import { FooterComponent } from './footer/footer.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RouteGuardService } from './serivce/route-guard.service';
 import { HttpClientModule } from '@angular/common/http';
+import { TodoComponent } from './todo/todo.component';
 
 const routes: Routes = [
   {path:'',component: LoginComponent},
   {path:'todo',component: ToDoListComponent, canActivate: [RouteGuardService]},
   {path:'login', component: LoginComponent},
-  {path:'welcome', component: WelcomeComponent,canActivate: [RouteGuardService]},
+  {path:':name/welcome', component: WelcomeComponent,canActivate: [RouteGuardService]},
   {path:'logout', component: LogoutComponent},
+  {path:'todo/:id', component:TodoComponent},
   {path:'**', component: ErrorComponent}
 
 ]
@@ -35,7 +37,8 @@ const routes: Routes = [
     ToDoListComponent,
     TopMenuComponent,
     FooterComponent,
-    LogoutComponent
+    LogoutComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,

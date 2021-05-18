@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { todo } from 'src/app/to-do-list/to-do-list.component';
+import { Todo } from 'src/app/to-do-list/to-do-list.component';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +11,12 @@ export class TodoDataService {
 
   public getAllTodos(username:String){
   
-    return this.http.get<todo []>(`http://localhost:8080/users/${username}/todos`)
+    return this.http.get<Todo []>(`http://localhost:8080/users/${username}/todos`)
 
+  }
+
+  public getTodoById(username:String,id:number){
+    return this.http.get<Todo>(`http://localhost:8080/users/${username}/todos/${id}`)
   }
 
   public deleteTodoById(username:String,id:Number){

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TodoDataService } from '../serivce/data/todo-data.service';
 
 
 
-export class todo{
+export class Todo{
   constructor(
     public id: any,
     public username:String,
@@ -21,10 +22,10 @@ export class todo{
 
 export class ToDoListComponent implements OnInit {
 
-  constructor(private todoService:TodoDataService) {
+  constructor(private todoService:TodoDataService, private route: Router) {
    
    }
-   todoList :todo[]
+   todoList :Todo[]
    message = null
   //[
   //   {id:1,desc:"first"},
@@ -54,5 +55,10 @@ export class ToDoListComponent implements OnInit {
     )
 
   } 
+
+  updateToDos(id){
+    console.log(id);
+    this.route.navigate(['todo',id]);
+  }
 
 }

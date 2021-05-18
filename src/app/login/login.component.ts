@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     console.log(this.username+this.password)
     if(this.auth.authenticate(this.username,this.password))
     {
-      this.router.navigate(['welcome'])
+      this.router.navigate([this.username,'welcome'])
       this.success = false
     }
     else{

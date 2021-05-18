@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { WelcomeDataService } from '../serivce/data/welcome-data.service';
 
 @Component({
@@ -9,7 +9,8 @@ import { WelcomeDataService } from '../serivce/data/welcome-data.service';
 })
 export class WelcomeComponent implements OnInit {
 
-  constructor(private router: Router, private hellobean:WelcomeDataService) { }
+  constructor(private router: Router, private hellobean:WelcomeDataService,private route:ActivatedRoute) {
+   }
   
   //variable declarations
   responseToPrint: String
@@ -17,10 +18,12 @@ export class WelcomeComponent implements OnInit {
   username:String
 
   ngOnInit(): void {
+    this.username = this.route.snapshot.paramMap.get('name');
   }
+  
   welcome()
   {
-    this.router.navigate(['todo'])
+    this.router.navigate([this.username,'todo'])
   }
   hello()
   {
